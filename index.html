@@ -20,6 +20,7 @@
     </style>
   </head>
   <body>
+    <a href="./styles.html">Vue Styles And Classes</a>
     <div id="app">
       <h1>Some must know basics before diving too deep</h1>
       <div class="must-know-basics">
@@ -45,7 +46,7 @@
         <p>Our data return object must not have any raw html, because if our site is hacked and hacker has access to the vm instance of the app, he can change the values of that raw html like, vm.rawUrl = "www.somethingnew,com"</p>
         <p>we must use "<template></template>" tag in case we want to group something in HTML without disturbing the HTML structure. As template is neither a div nor a span, i.e. neither a block element nor an inline element</p>
         <p>v-cloak attribute works like it waits for rendering and then applies the </p>
-        <p>v-model only works for the input, select, textarea. Also checkout its modifiers(lazy, number, trim)</p>
+        <p>v-model only works for the input, select, textarea(and other form elements). It has modifiers(lazy, number, trim)</p>
       </div>
       <!-- <p>{{ const x = 4; document.write(x); }} is not allowed.</p> -->
 

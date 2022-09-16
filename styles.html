@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Styles Classes</title>
+    <style>
+        .element {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+            background-color: green;
+        }
+        .styles-P {
+            background-color: red;
+            color: white;
+        }
+        .styles-red {
+            color: red;
+            background-color: whitesmoke;
+        }
+        .styles-blue {
+            color: blue;
+            background-color: whitesmoke;
+        }
+        .online-indicator {
+            color: green;
+        }
+        .purple {
+            border-radius: 50%;
+            background: purple;
+            color: white;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .take-care {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="styles-classes">
+        <div class="take-care">
+            <a href="/">Home Page</a>
+            <p>
+                Computed properties update, whenever the data they use, updated
+            </p>
+            <p>We can always use arrays in class and style bindings to pass multiple classes coming from various objects or from computed properties or just anything.</p>
+        </div>
+        <div class="element">
+            <h1 :style="stylesH1">Vue Styles And Classes</h1>
+        </div>
+        <div>
+            <p :class="stylesPObj">Styles Paragraph</p>
+        </div>
+        <div>
+            <p v-bind:class="color" v-on:click="color['styles-blue'] = !color['styles-blue']">Click on me, I will change my color</p>
+        </div>
+        <div :class="[onlineIndicator.isActive?onlineIndicator.className:'']">
+            If my color is green the user is online
+        </div>
+        <div>
+            <input id="isPurple" type="checkbox" v-model="isPurple" /><label for="isPurple">CLICK ME TO MAKE THE BELOW CONTENT "purple"</label>
+            <div v-if="isPurple">
+                <input id="dimension" type="number" v-model.number="dimension"><label for="dimension">Resize the circle!</label>
+                <div :style="resizeCircle" :class="hiCircleColor">hi!</div>
+            </div>
+            <div v-else style="color: blue;">hi!</div>
+        </div>
+
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./styles.js"></script>
+</body>
+</html>
