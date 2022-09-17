@@ -2,7 +2,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      welcomeMessage: "Welcome to VueJS by Code Revolution",
+      welcomeMessage: "Welcome to VueJS by Mohit Guleria",
       isGuest: true,
       src: "https://picsum.photos/seed/picsum/200/300",
       alt: "Picture of Mount Everest",

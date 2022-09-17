@@ -17,14 +17,22 @@
       .must-know-basics {
         background-color: yellowgreen;
       }
+
+      a {
+        text-decoration: none;
+        margin: 0px 6px 0px 6px;
+        color: rgb(170, 82, 243);
+      }
     </style>
   </head>
   <body>
-    <a href="./styles.html">Vue Styles And Classes</a>
+    <a href="./views/styles.html">Vue Styles And Classes</a>
+    <a href="./views/computedNwatchers.html">Computed Properties N Watchers</a>
     <div id="app">
       <h1>Some must know basics before diving too deep</h1>
       <div class="must-know-basics">
         <p>There's a choice to select the strength or availability of network under Networks tab in dev. tools</p>
+        <p>'@'-> events, ':'-> binding, v-model doesn't have shorthand like v-on: and v-bind</p>
         <p>Data should always be a method and not simply a property</p>
         <p>"vm" in vue is View Model, kinda template and data.</p>
         <p>
@@ -36,8 +44,7 @@
           return object
         </p>
         <p>
-          {{ 2 + 2 }} your knowledge, js data value representation is allowed
-          within the pair of curly braces
+          {{ 2 + 2 }} your knowledge, within double curly braces data representation and basic js is allowed and we can't declare variables or write another level of javascript
         </p>
         <p>There should be no other element between the v-if and v-else element except v-else-if</p>
         <p>use v-show if the element will constantly appear/disappear on the page.<br />
@@ -79,6 +86,6 @@
       </ul>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
-    <script src="./app.js"></script>
+    <script src="./js/app.js"></script>
   </body>
 </html>

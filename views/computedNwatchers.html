@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Js Computed N Watchers!</title>
+    <style>
+        .take-care {
+            background-color: greenyellow;
+        }
+        a {
+        text-decoration: none;
+        margin: 0px 6px 0px 6px;
+        color: rgb(170, 82, 243);
+      }
+      .red{
+          background-color: red;
+      }
+    </style>
+</head>
+<body>
+    <a href="/">Home Page</a>
+    <div class="take-care">
+        <p>Computed property is a property declared as a method that reacts when the data(maybe one from the data returned object) it uses, is changed.<br />OR WE CAN SAY<br />
+            Computed properties update, whenever the data they use, is updated, and doesn't simply become the part of re-rendering.<br />
+            Computed properties are synchronous. We can not reach servers using computed properties and/or make network requests inside computed properties or wait to get a promise resolved. Similar to setTimeout.<br />It's advised not to make async requests or mutate the DOM inside a computed property getter!
+
+        </p>
+        <p>whenever the data property changes, vue renders the template on the page again</p>
+    </div>
+    <div id="computedWatchers">
+        <p>***Keep observing the console, and look how following input and button methods are interfering even without any dependence on each other(maybe due to re-rendering, as Vue works this way), that's y we have to implement computed properties to tackle such problems in the red div</p>
+        <p style="color: burlywood; background-color: black;">Make sure to uncomment active watcher in computedNwatchers.js to observe how watchers can run asynchronous code like setTimeout and promises, or else keep active watcher commented and observe how computed properties are unable to run asynchronous code. </p>
+        <input type="text" v-model="user">
+        <p>{{ message() }}</p>
+        <button @click="toggleActive()">Toggle {{ isActive() == 'Inactive'? 'Active' : 'Inactive' }}</button>
+        <p>Is Active? : {{ isActive() }}</p>
+        <div class="red">
+            <h2>Using computed properties</h2>
+            <input type="text" v-model="user">
+            <p>{{ computedMessage }}</p>
+            <button @click="toggleActive(), toggleComputedActive()">Toggle {{ isActive() == 'Inactive'? 'Active' : 'Inactive' }}</button>
+            <p>Is Active? : {{ isActive() }}</p>
+            <p>is ComputedActive? : {{ isComputedActive() }}</p>
+            <p>Loading: {{ loading }}</p>
+        </div>
+        <div>
+            <p v-once>{{ firstName }}</p>
+            <p>{{ firstName }}</p>
+            <button @click="changeApp2Property()">Change property of other instance</button>
+        </div>
+    </div>
+    <div id="app2">
+        <p>{{ valueAcessibleToComputedWatchersApp }}</p>
+        <button @click="accessOuterProperty()">generate warning</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="../js/computedNwatchers.js"></script>
+</body>
+</html>
