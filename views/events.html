@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Js Computed N Watchers!</title>
+    <style>
+        .take-care {
+            background-color: greenyellow;
+        }
+
+        a {
+            text-decoration: none;
+            margin: 0px 6px 0px 6px;
+            color: rgb(170, 82, 243);
+        }
+
+        .box {
+            background-color: rgb(139, 0, 247);
+            height: 250px;
+            overflow: hidden;
+            width: 250px;
+        }
+
+        .box-message {
+            padding: 5px 0px 0px 5px;
+            color: white;
+        }
+
+        .coordinatesText {
+            color: white;
+        }
+
+        body {
+            font-size: 20px;
+            font-family: sans-serif;
+            padding-top: 10px;
+            background: #e6ecf1;
+        }
+
+        #events {
+            text-align: center;
+        }
+
+        #events button {
+            background-color: #899ff4;
+            border-color: transparent;
+            color: #fff;
+            font-size: 20px;
+            margin-right: 1rem;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #events .card {
+            width: 400px;
+            margin: 15px auto;
+            padding-bottom: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+            color: #4a4a4a;
+            display: block;
+            padding: 1.25rem;
+        }
+
+        #events input:focus {
+            outline: 0;
+        }
+
+        #events input {
+            font-weight: bold;
+            width: 100%;
+            font-size: 1em;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://mohitguleria.github.io/vuejs/">Live Home Page</a>
+    <a href="/">Local Home Page</a>
+    <div class="take-care">
+        <p>click, dblclick, submit, click.right, click.ctrl are some of the common events</p>
+        <p>To study about more mouse events and their modifiers, <a
+                href="https://v2.vuejs.org/v2/guide/events.html">click here</a></p>
+    </div>
+    <div id="events">
+        <div>
+            <p>{{ name }}</p>
+            <button v-on:click="updateName()" @dblclick="changeToFullName()" @click.right="instagramName()">click,
+                doubleclick, rightclick</button>
+            <button @click="makeNameAnonymous('anonymous')">Pass 'anonymous' to name's value</button>
+        </div>
+        <div>
+            <div class="box" @mousemove="getCoordinates">
+                <p class="box-message">Hover me! Get co-ordinates!</p>
+                <p :style="coordinatesTextStyles">(x: {{ x }}, y: {{ y }})</p>
+            </div>
+        </div>
+        <div>
+            <p>{{ valuePassed }}</p>
+            <p>{{ eventFired }}</p>
+            <button @click="printPassedValueAndEvent('This is a string passed', $event)">Print passed value and get
+                event name along.</button>
+        </div>
+        <div>
+            <form type="submit" v-on:submit.prevent="formHandlerMethod">
+                <input type="text" placeholder="enter just anything" />
+                <button type="submit">Submit form</button>
+
+            </form>
+            <div>
+                <p>{{ keyboardEventMessage }}</p>
+                <input type="text" v-on:keyup.72.space.g.enter="setKeyboardEventMessage"
+                    placeholder="enter g, spacebar, enter to focus out" />
+            </div>
+        </div>
+        <div>
+            <button type="button" class="move" @click="move">Move to Bottom</button>
+            <div class="card" v-for="person in people" :key="person.name">
+                <h3>{{ person.name }}</h3>
+                <p>{{ person.message }}</p>
+                <input type="text" />
+            </div>
+        </div>
+        <div>
+            <p ref="someReference">This is a reference within the vue instance, so we can get it using $refs. Mak sure
+                to not to make reference from the same name.</p>
+            <button @click="changeColorOfRef">Change Color of Ref</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="../js/events.js"></script>
+</body>
+
+</html>
