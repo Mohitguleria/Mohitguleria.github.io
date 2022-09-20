@@ -1,93 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue Js Basics!</title>
 
-    <style>
-      [v-cloak] {
-        display: none;
-      }
-      [customAttribute] {
-        color: red;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Js Basics!</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
 
-      .must-know-basics {
-        background-color: yellowgreen;
-      }
+    [customAttribute] {
+      color: red;
+    }
 
-      a {
-        text-decoration: none;
-        margin: 0px 6px 0px 6px;
-        color: rgb(170, 82, 243);
-      }
-    </style>
-  </head>
-  <body>
-    <a href="https://github.com/saifaustcse/vue-developer-roadmap">Vue Js Roadmap</a>
-    <a href="./views/styles.html">Vue Styles And Classes</a>
-    <a href="./views/computedNwatchers.html">Computed Properties N Watchers</a>
-    <a href="./views/events.html">Events N Modifiers</a>
-    <div id="app">
-      <h1>Some must know basics before diving too deep</h1>
-      <div class="must-know-basics">
-        <p>There's a choice to select the strength or availability of network under Networks tab in dev. tools</p>
-        <p>'@'-> events, ':'-> binding, v-model doesn't have shorthand like v-on: and v-bind</p>
-        <p>Data should always be a method and not simply a property</p>
-        <p>"vm" in vue is View Model, kinda template and data.</p>
-        <p>
-          If your method needs to use some variable using 'this' keyword, the
-          method must be regular or else it can an arrow one
-        </p>
-        <p>
-          vue doesn't recognize the variables declared out of data function's
-          return object
-        </p>
-        <p>
-          {{ 2 + 2 }} your knowledge, within double curly braces data representation and basic js is allowed and we can't declare variables or write another level of javascript
-        </p>
-        <p>There should be no other element between the v-if and v-else element except v-else-if</p>
-        <p>use v-show if the element will constantly appear/disappear on the page.<br />
-          Use v-if if the element appears/disappears occasionally, rarely
-        </p>
-        <p>Our data return object must not have any raw html, because if our site is hacked and hacker has access to the vm instance of the app, he can change the values of that raw html like, vm.rawUrl = "www.somethingnew,com"</p>
-        <p>we must use "<template></template>" tag in case we want to group something in HTML without disturbing the HTML structure. As template is neither a div nor a span, i.e. neither a block element nor an inline element</p>
-        <p>v-cloak attribute works like it waits for rendering and then applies the </p>
-        <p>v-model only works for the input, select, textarea(and other form elements). It has modifiers(lazy, number, trim)</p>
-      </div>
-      <!-- <p>{{ const x = 4; document.write(x); }} is not allowed.</p> -->
+    .must-know-basics {
+      background-color: yellowgreen;
+    }
 
-      <h1 v-cloak>{{ $data.welcomeMessage }} This one is without proxying</h1>
-      <p customAttribute>{{ $data.welcomeMessage }}</p>
-      <h1 v-cloak>
-        {{ welcomeMessage }}
-        <code>{{ `, this works fine, due to proxying in VueJS` }}</code>
-      </h1>
-      <p v-cloak>{{ isGuest?"If you are new sign up here":"" }}</p>
-      <p v-if="someArray[2] && someArray[1] >50">{{ someArray[0] }}</p>
-      <p>{{ someFunction() }} {{ `one ${someObj.car}` }}</p>
-      <p>{{ testMethod() }}</p>
-      <img v-bind:src="src" :alt="alt" />
-      <!-- when prettier formatter was disabled, I found that alt is working fine even without double quotes -->
-      <hr />
-      <p v-text="textFromFuture"></p>
-      <p v-html="htmlFromFuture"></p>
-      <p>{{ vModel }}</p>
-      <input type="text" v-model.lazy="vModel">
-      <!-- loopers have value, key index or value, index(incase of array) in an decreasing usage order maybe -->
-      <p v-for="(something, index) in someArray"> <!-- value, index -->
-        {{ index }}
-        {{ something }}
+    a {
+      text-decoration: none;
+      margin: 0px 6px 0px 6px;
+      color: rgb(170, 82, 243);
+    }
+
+    .projects-link {
+      background-color: cadetblue;
+      margin-top: 1rem;
+      min-height: 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .important-links {
+      background-color: coral;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="https://github.com/saifaustcse/vue-developer-roadmap">Vue Js Roadmap</a>
+  <a href="./views/styles.html">Vue Styles And Classes</a>
+  <a href="./views/computedNwatchers.html">Computed Properties N Watchers</a>
+  <a href="./views/events.html">Events N Modifiers</a>
+  <div class="projects-link">
+    <h2>Project Links</h2>
+    <a href="./views/perspectivePlayground.html">Perspective Playground</a>
+  </div>
+  <div class="important-links">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API">Clipboard API docs</a>
+  </div>
+  <div id="app">
+    <h1>Some must know basics before diving too deep</h1>
+    <div class="must-know-basics">
+      <p>There's a choice to select the strength or availability of network under Networks tab in dev. tools</p>
+      <p>'@'-> events, ':'-> binding, v-model doesn't have shorthand like v-on: and v-bind</p>
+      <p>Data should always be a method and not simply a property</p>
+      <p>"vm" in vue is View Model, kinda template and data.</p>
+      <p>
+        If your method needs to use some variable using 'this' keyword, the
+        method must be regular or else it can an arrow one
       </p>
-      <ul>key value specs of my car <!-- value, key index -->
-        <li v-for="(value, key, index) in someObj">
-          {{ index }}/{{ key }}/{{ value }}
-        </li>
-      </ul>
+      <p>
+        vue doesn't recognize the variables declared out of data function's
+        return object
+      </p>
+      <p>
+        {{ 2 + 2 }} your knowledge, within double curly braces data representation and basic js is allowed and we can't
+        declare variables or write another level of javascript
+      </p>
+      <p>There should be no other element between the v-if and v-else element except v-else-if</p>
+      <p>use v-show if the element will constantly appear/disappear on the page.<br />
+        Use v-if if the element appears/disappears occasionally, rarely
+      </p>
+      <p>Our data return object must not have any raw html, because if our site is hacked and hacker has access to the
+        vm instance of the app, he can change the values of that raw html like, vm.rawUrl = "www.somethingnew,com"</p>
+      <p>we must use "<template></template>" tag in case we want to group something in HTML without disturbing the HTML
+        structure. As template is neither a div nor a span, i.e. neither a block element nor an inline element</p>
+      <p>v-cloak attribute works like it waits for rendering and then applies the </p>
+      <p>v-model only works for the input, select, textarea(and other form elements). It has modifiers(lazy, number,
+        trim)</p>
     </div>
-    <script src="https://unpkg.com/vue@next"></script>
-    <script src="./js/app.js"></script>
-  </body>
+    <!-- <p>{{ const x = 4; document.write(x); }} is not allowed.</p> -->
+
+    <h1 v-cloak>{{ $data.welcomeMessage }} This one is without proxying</h1>
+    <p customAttribute>{{ $data.welcomeMessage }}</p>
+    <h1 v-cloak>
+      {{ welcomeMessage }}
+      <code>{{ `, this works fine, due to proxying in VueJS` }}</code>
+    </h1>
+    <p v-cloak>{{ isGuest?"If you are new sign up here":"" }}</p>
+    <p v-if="someArray[2] && someArray[1] >50">{{ someArray[0] }}</p>
+    <p>{{ someFunction() }} {{ `one ${someObj.car}` }}</p>
+    <p>{{ testMethod() }}</p>
+    <img v-bind:src="src" :alt="alt" />
+    <!-- when prettier formatter was disabled, I found that alt is working fine even without double quotes -->
+    <hr />
+    <p v-text="textFromFuture"></p>
+    <p v-html="htmlFromFuture"></p>
+    <p>{{ vModel }}</p>
+    <input type="text" v-model.lazy="vModel">
+    <!-- loopers have value, key index or value, index(incase of array) in an decreasing usage order maybe -->
+    <p v-for="(something, index) in someArray">
+      <!-- value, index -->
+      {{ index }}
+      {{ something }}
+    </p>
+    <ul>key value specs of my car
+      <!-- value, key index -->
+      <li v-for="(value, key, index) in someObj">
+        {{ index }}/{{ key }}/{{ value }}
+      </li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="./js/app.js"></script>
+</body>
+
 </html>
