@@ -6,6 +6,7 @@ createApp({
             inputName: '',
             names: [],
             showError: false,
+            result: '',
         }
     },
     methods: {
@@ -24,10 +25,21 @@ createApp({
             } else {
                 return false;
             }
+        },
+        showResults(){
+            this.result = this.names[Math.floor(Math.random() * this.names.length)]
+            this.state = false
+        },
+        resetApp(){
+            this.state = true
+            this.inputName = ''
+            this.names = []
+            this.showError = false
+            this.result = ''
+        },
+        removeName(index){
+            this.names.splice(index, 1)
         }
     },
-    computed: {
-
-    }
 
 }).mount('#paybill');
