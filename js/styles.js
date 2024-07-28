@@ -1,6 +1,5 @@
-const { createApp } = Vue;
-
-createApp({
+new Vue({
+    el: "#styles-classes",
     data(){
         return {
             isPurple: false,
@@ -30,4 +29,4 @@ createApp({
     mounted(){
         
     }
-}).mount("#styles-classes");
+})

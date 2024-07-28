@@ -1,7 +1,6 @@
 const warning = "If you are found loosing focus, you will be executed";
-const { createApp } = Vue;
-
-const computedWatchers = createApp({
+const computedWatchers = new Vue({
+    el: '#computedWatchers',
     data(){
         return {
             user: '',
@@ -64,10 +63,11 @@ const computedWatchers = createApp({
         // call below method here if don't want to place a button to do it.
         // setTimeout(this.changeApp2Property, 2000);
     }
-}).mount('#computedWatchers');
+})
 
 
-const app2 = createApp({
+const app2 = new Vue({
+    el: '#app2',
     data(){
         return {
             valueAcessibleToComputedWatchersApp: "Value of app2 instance"
@@ -78,4 +78,4 @@ const app2 = createApp({
             alert(warning);
         }
     }
-}).mount('#app2');
+})

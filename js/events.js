@@ -1,5 +1,5 @@
-const { createApp } = Vue;
-createApp({
+new Vue({
+    el: '#events',
     data(){
         return {
             name: "mohit",
@@ -75,4 +75,4 @@ createApp({
             }
         }
     }
-}).mount('#events');
+})
