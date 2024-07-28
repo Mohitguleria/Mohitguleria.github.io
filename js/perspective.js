@@ -1,5 +1,5 @@
-const { createApp } = Vue;
-createApp({
+new Vue({
+    el: '#perspective',
     data(){
         return {
             welcome: "Welcome To Perspective Playground!",
@@ -32,4 +32,4 @@ createApp({
            await navigator.clipboard.writeText(text);
         }
     }
-}).mount('#perspective');
+});

@@ -1,5 +1,7 @@
-const { createApp } = Vue;
-createApp({
+// console.log( new Vue)
+// const { createApp } = Vue;
+new Vue({
+  el: "#app",
   data() {
     return {
       welcomeMessage: "Welcome to VueJS by Mohit Guleria",
@@ -31,4 +33,4 @@ createApp({
       return `${this.isGuest ? "may not be a fraud" : ""}`;
     },
   },
-}).mount("#app");
+});

@@ -1,5 +1,5 @@
-const { createApp } = Vue;
-createApp({
+new Vue({
+    el:'#paybill',
     data(){
         return {
             state: true,
@@ -42,4 +42,4 @@ createApp({
         }
     },
 
-}).mount('#paybill');
+});
